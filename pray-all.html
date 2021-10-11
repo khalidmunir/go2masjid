@@ -28,11 +28,12 @@
 
 
         .txt {
-            fill: #fcf3cf; //#fef9e7  ;
+            fill: #fcf3cf; 
+            /* #fef9e7; */
             font-size: 0.90em;
-            //font-family:bold;
+            /* font-family:bold; */
             text-anchor: middle;
-            alignment-baseline: central;
+            /* alignment-baseline:central; */
         }
 
         .progress__meter {
@@ -42,7 +43,7 @@
         }
 
         .progress__value {
-            //transform: rotate(-90);
+            /* transform: rotate(-90); */
 
             stroke: #ffa6a6;
             fill: #343a40;
@@ -332,22 +333,13 @@
                             <td><span id="eshaStart1">eshaStart</span></td>
                             <td><span id="eshaJamat1">eshaJamat</span></td>
                         </tr>
-
-
                     </tbody>
-
-
                 </table>
-                    
             </div>
-                
-
-
-
 
         </div>
     </div>
-    </div>
+    
 
         <div class="container option-one">Select a City<br><select id="sourceCitySelector"></select> <br>
             
@@ -383,57 +375,56 @@
 
         sourceCitySelector.addEventListener('change',async e => {
     
-        const response = await fetch(`https://go2masjid.com/api/papi/loc_getcity.php?name=${e.target.value}`);
-        const json = await response.json();
-        console.log(json);
-        var masjidlist = json;
-        // https://go2masjid.com/api/papi/loc_getcity.php?name=Birmingham
-        console.log("event ",masjidlist);
+            const response = await fetch(`https://go2masjid.com/api/papi/loc_getcity.php?name=${e.target.value}`);
+            const json = await response.json();
+            console.log(json);
+            var masjidlist = json;
+            // https://go2masjid.com/api/papi/loc_getcity.php?name=Birmingham
+            console.log("event ",masjidlist);
 
-        const theader = `
-        <table class="container table table-striped pt-3">
-            <thead>
-                <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Start/Jamat</th>
-                <th scope="col">Fajar</th>
-                <th scope="col">Zuhr</th>
-                <th scope="col">Asar</th>
-                <th scope="col">Maghrib</th>
-                <th scope="col">Esha</th>
-                </tr>
-            </thead>
-        <tbody>
-            `
-            const tfooter = `
+                const theader = `
+            <table class="container table table-striped pt-3">
+                <thead>
+                    <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Start/Jamat</th>
+                    <th scope="col">Fajar</th>
+                    <th scope="col">Zuhr</th>
+                    <th scope="col">Asar</th>
+                    <th scope="col">Maghrib</th>
+                    <th scope="col">Esha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                `
+                    const tfooter = `
                 </tbody>
-            </table>
-            `
+                </table>
+                `
 
                 // TODO: replace the bogus output with bootstrap cards (styled) with images
                 let btable = masjidlist.map(masjid =>  {
 
                         let table =`
                         
-            <tr>
-            <th scope="row"><span onclick="setMasjid('`+ masjid.masjidimage +`')">${masjid.masjidname}</span></th>
-            <td>Start<br /><i>Jamat</i></td>
-            <td>${am_pm_hr(masjid.salats[0].fajarstart)}<br /><i>${am_pm_hr(masjid.salats[0].fajarjamat)}</i></td>
-            <td>${am_pm_hr(masjid.salats[0].zuhrstart)}<br />${am_pm_hr(masjid.salats[0].zuhrjamat)}</td>
-            <td>${am_pm_hr(masjid.salats[0].asarstart)}<br />${am_pm_hr(masjid.salats[0].asarjamat)}</td>
-            <td>${am_pm_hr(masjid.salats[0].maghrib)}</td>
-            <td>${am_pm_hr(masjid.salats[0].eshastart)}<br />${am_pm_hr(masjid.salats[0].eshajamat)}</td>
-            </tr>
-                        `
-    
+                        <tr>
+                        <th scope="row"><span onclick="setMasjid('`+ masjid.masjidimage +`')">${masjid.masjidname}</span></th>
+                        <td>Start<br /><i>Jamat</i></td>
+                        <td>${am_pm_hr(masjid.salats[0].fajarstart)}<br /><i>${am_pm_hr(masjid.salats[0].fajarjamat)}</i></td>
+                        <td>${am_pm_hr(masjid.salats[0].zuhrstart)}<br /><i><i>${am_pm_hr(masjid.salats[0].zuhrjamat)}</i></td>
+                        <td>${am_pm_hr(masjid.salats[0].asarstart)}<br /><i>${am_pm_hr(masjid.salats[0].asarjamat)}</i></td>
+                        <td>${am_pm_hr(masjid.salats[0].maghrib)}</td>
+                        <td>${am_pm_hr(masjid.salats[0].eshastart)}<br /><i>${am_pm_hr(masjid.salats[0].eshajamat)}</i></td>
+                        </tr>
+                                    `
              
-                return table; 
-            }).join('')
+                    return table; 
+                }).join('')
 
 
             document.getElementById("output").innerHTML= theader + btable + tfooter
 
-    })
+        })
 
     //first get the masjid id 
     var urlMid = $_GET('mid')
@@ -478,7 +469,7 @@
     sourceCitySelector.innerHTML += cityList.map((src, index) => `<option value=${src.cityname}>${src.cityname} - (${src.masjidid}) 
     `).join('\n');
 
-}
+    }
         
 
         
@@ -489,8 +480,7 @@
         function init(){
             let override = urlMid === null ? urlSrc : urlMid;
             // document.getElementById("caption").innerHTML=`Times provided by <a href="https://go2masjid.com?mid=${urlSrc}" target="_blank">Go2masjid.com</a>`;
-            document.getElementById("caption").innerHTML=`Times provided by <a href="https://go2masjid.com?mid=${override}" target="_blank"><img style="height:25px; width:auto;" src="https://go2masjid.com/screens2/img/go2masjid01.jpg
-"/></a>`;
+            document.getElementById("caption").innerHTML=`Times provided by <a href="https://go2masjid.com?mid=${override}" target="_blank"><img style="height:25px; width:auto;" src="https://go2masjid.com/screens2/img/go2masjid01.jpg"/></a>`;
 
             updateCitySources();
             
@@ -626,6 +616,9 @@
             
             const tomorrowSalat= masjidObj.salats.filter(sal => sal.salatdate == tomorrowDate)[0]
             console.log("tom salat date: ", tomorrowSalat);
+
+            document.getElementById("caption").innerHTML=`Times provided by <a href="https://go2masjid.com?mid=${override}" target="_blank"><img style="height:25px; width:auto;" src="https://go2masjid.com/screens2/img/go2masjid01.jpg"/></a>`;
+
 
             // masjidObj= masjid;
 
@@ -1140,7 +1133,7 @@
         }
     }
 
-</script>
+    </script>
 
 
 </body>
