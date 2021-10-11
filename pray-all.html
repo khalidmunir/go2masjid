@@ -114,67 +114,6 @@
 
     <div class="container">
         <div class="row">
-            <!-- <div class="col-md-6 col-sm-12 col-lg-4" align="center"><h5 id="masjidname">Masjid Name</h5>
-                <!-- progress bar - ->
-                <h5 id="reminder">reminder</h5>
-                <svg id='svgOne' viewbox="-10 -10 220 220" class="shadow p-4 mb-5 rounded bg-light">
-
-
-                    <!-- progress bar - ->
-                    <circle class="progress__meter " cx="100" cy="100" r="105" stroke-width="3" />
-                    <!--         <circle class="progress__value" transform="rotate(-90, 100, 100)" cx="100" cy="100" r="105" stroke-width="3" /> - ->
-
-                    <!-- progress bar ends- ->
-
-
-
-
-                    <circle class="clock" cx="100" cy="100" r="100" />
-                    <path id="arc1" class="arc1" />
-                    <path id="arc2" class="arc2" />
-
-                    <g id="tics"> </g>
-
-
-                    <g>
-                        <text x="88" y="20" class="num">12</text>
-                        <text x="139" y="35" class="num">1</text>
-                        <text x="170" y="65" class="num">2</text>
-                        <text x="185" y="109" class="num">3</text>
-                        <text x="169" y="154" class="num">4</text>
-                        <text x="136" y="185" class="num">5</text>
-                        <text x="93" y="195" class="num">6</text>
-                        <text x="49" y="184" class="num">7</text>
-                        <text x="17" y="153" class="num">8</text>
-                        <text x="04" y="108" class="num">9</text>
-                        <text x="15" y="66" class="num">10</text>
-                        <text x="47" y="34" class="num">11</text>
-
-                    </g>
-
-                    <g transform="translate(100,100)">
-                        <line id="hourhand" class="hours" x1="0" y1="0" x2="0" y2="73" transform="rotate(0) ">
-                        </line>
-                        <line id="minutehand" class="minutes" x1="0" y1="0" x2="0" y2="95" transform="rotate(0)">
-                        </line>
-                        <line id="secondhand" class="seconds" x1="0" y1="0" x2="0" y2="102" transform="rotate(0)">
-                        </line>
-                    </g>
-
-                    <circle class="dot" cx="100" cy="100" r="58" />
-
-                    <text x="100" y="75" class="txt" id="time">00:00:00</text>
-                    <text x="100" y="100" class="txt" id="salah"></text>
-                    <text x="100" y="125" class="txt" id="msg"></text>
-                    <!--       <text x="100" y="135"  class="txt" id="next">next salah</text> - ->
-                    
-                    
-                </svg>
-                <!-- <p id="caption"></p> - ->
-
-            </div> -->
-
-            
             <div class="col-md-6 col-sm-12 col-lg-4">
                 <table class="table table-light container shadow">
                     <caption id="caption" class="text-center">go2masjid</caption>
@@ -456,6 +395,7 @@
             <thead>
                 <tr>
                 <th scope="col">Name</th>
+                <th scope="col">Start/Jamat</th>
                 <th scope="col">Fajar</th>
                 <th scope="col">Zuhr</th>
                 <th scope="col">Asar</th>
@@ -477,6 +417,7 @@
                         
             <tr>
             <th scope="row"><span onclick="setMasjid('`+ masjid.masjidimage +`')">${masjid.masjidname}</span></th>
+            <td>Start<br /><i>Jamat</i></td>
             <td>${am_pm_hr(masjid.salats[0].fajarstart)}<br /><i>${am_pm_hr(masjid.salats[0].fajarjamat)}</i></td>
             <td>${am_pm_hr(masjid.salats[0].zuhrstart)}<br />${am_pm_hr(masjid.salats[0].zuhrjamat)}</td>
             <td>${am_pm_hr(masjid.salats[0].asarstart)}<br />${am_pm_hr(masjid.salats[0].asarjamat)}</td>
