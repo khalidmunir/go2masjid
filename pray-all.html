@@ -20,68 +20,75 @@
         svg {
             /* min-width:300px;
             min-height:300px; */
-            background: #fffefd;
+            background: #fbfcfc;
             max-width: 360px;
 
         }
 
-
-
         .txt {
-            fill: #fcf3cf; 
+            fill: #fffefd;
             /* #fef9e7; */
-            font-size: 0.90em;
+            font-size: 0.60em;
+            /* font-family:bold; */
+            text-anchor: middle;
+            /* alignment-baseline:central; */
+        }
+
+
+        .txt1 {
+            fill: #fffefd;; 
+            /* #fef9e7; */
+            font-size: 1.2em;
             /* font-family:bold; */
             text-anchor: middle;
             /* alignment-baseline:central; */
         }
 
         .progress__meter {
-            stroke: #999999;
-            fill: #343a40;
-
+            stroke: #e9ecef;
+            fill: #cecfd1;
         }
 
         .progress__value {
             /* transform: rotate(-90); */
 
             stroke: #ffa6a6;
-            fill: #343a40;
+            fill: #414344;
             /* stroke-linecap: round; */
 
 
         }
 
         .num {
-            fill: #fcf3cf;
-            font-family: "Times New Roman", Times, serif;
-            font-size: 1.5em;
+            fill: #5c5f60;
+            /* font-family: "Times New Roman", Times, serif; */
+            font-size: 1.3em;
         }
 
         .clock {
-            fill: #212f3c;
+            fill: #e9ecef;
 
         }
 
         .dot {
-            fill: #212f3c;
-            stroke: #343a40;
-            stroke-width: 2;
+            fill: #6a7278;
+            stroke: #d6dadd;
+            stroke-width: 5;
 
 
         }
 
         .hours {
-            stroke: #f39c12;
+            stroke: #ff8c00;
             fill: green;
-            stroke-width: 6.5;
+            stroke-width: 7;
             stroke-linecap: round;
 
         }
 
         .minutes {
             stroke: #f39c12;
-            stroke-width: 4.5;
+            stroke-width: 4;
             stroke-linecap: round;
 
         }
@@ -131,7 +138,7 @@
                     <tbody>
                         <tr>
                             
-                            <td align="center">
+                            <td align="center" style="background-color:fbfcfc">
                                 <p id="reminder"></p>
                                 
                                 <svg viewbox="-10 -10 220 220" class="p-0 mb-0 rounded">
@@ -174,14 +181,14 @@
                                         </line>
                                         <line id="minutehand" class="minutes" x1="0" y1="0" x2="0" y2="95" transform="rotate(0)">
                                         </line>
-                                        <line id="secondhand" class="seconds" x1="0" y1="0" x2="0" y2="102" transform="rotate(0)">
+                                        <line id="secondhand" class="seconds" x1="0" y1="0" x2="0" y2="98" transform="rotate(0)">
                                         </line>
                                     </g>
                 
-                                    <circle class="dot" cx="100" cy="100" r="58" />
+                                    <circle class="dot" cx="100" cy="100" r="47" />
                 
-                                    <text x="100" y="75" class="txt" id="time">00:00:00</text>
-                                    <text x="100" y="100" class="txt" id="salah"></text>
+                                    <text x="100" y="92" class="txt1" id="time">00:00:00</text>
+                                    <text x="100" y="112" class="txt" id="salah"></text>
                                     <text x="100" y="125" class="txt" id="msg"></text>
                                     <!--       <text x="100" y="135"  class="txt" id="next">next salah</text> -->
                                     
@@ -202,9 +209,9 @@
 
 
             <div class="col-md-6 col-sm-12 col-lg-4">
-                <table class="table table-dark table-striped container shadow table-hover">
+                <table class="table table-light table-striped container shadow table-hover">
                     <caption class="text-center">Times for today</caption>
-                    <thead class="thead-dark">
+                    <thead class="thead-light">
 
                         <tr class='text-center'>
 
@@ -281,33 +288,33 @@
 
                         <tr class='text-center'>
 
-                            <th scope='col' colspan='3'><span id="tomDate">tomorrowDate</span></th>
+                            <th scope='col' colspan='3'><span class="text-muted" id="tomDate">tomorrowDate</span></th>
 
                         </tr>
 
                         <tr>
-                            <th scope='col'>Salaat</th>
-                            <th scope='col'>Start<br></th>
-                            <th scope='col'>Jamaat<br></th>
+                            <th class="text-muted" scope='col'>Salaat</th>
+                            <th class="text-muted" scope='col'>Start<br></th>
+                            <th class="text-muted" scope='col'>Jamaat<br></th>
                         </tr>
 
                     </thead>
                     <tbody>
-                        <tr id='00'>
-                            <th scope='row'>Fajr</th>
+                        <tr id='00' class="text-muted">
+                            <th scope='row' class="text-muted">Fajr</th>
                             <td><span id="fajarStart1">farjStart</span></td>
                             <td><span id="fajarJamat1">fajarJamat</span></td>
                         </tr>
 
 
-                        <tr id='11'>
+                        <tr id='11' class="text-muted">
                             <th scope='row'>Sunrise</th>
                             <td><span id="sunrise1">sunrise</span></td>
                             <td></td>
                         </tr>
 
 
-                        <tr id='22'>
+                        <tr id='22' class="text-muted">
 
                             <th scope='row'><span id="dhuhr1">Dhuhr</span></th>
                             <td><span id="zuhrStart1">zuhrstart</span></td>
@@ -317,18 +324,18 @@
 
 
 
-                        <tr id='33'>
+                        <tr id='33'class="text-muted">
                             <th scope='row'>Asr</th>
                             <td><span id="asarStart1">asarStart</span></td>
                             <td><span id="asarJamat1">asarJamat</span></td>
                         </tr>
 
-                        <tr id='44'>
+                        <tr id='44'class="text-muted">
                             <th scope='row'>Magrib</th>
                             <td><span id="maghrib1">maghrib</span></td>
                             <td><span id="maghribJamat1">maghribJamat</span></td>
                         </tr>
-                        <tr id='55' style="border:5px solid transparent">
+                        <tr id='55' class="text-muted" style="border:5px solid transparent">
                             <th scope='row'>Esha</th>
                             <td><span id="eshaStart1">eshaStart</span></td>
                             <td><span id="eshaJamat1">eshaJamat</span></td>
@@ -771,7 +778,7 @@
                     rect.setAttributeNS( null,'y','100' );
                     rect.setAttributeNS( null,'width','0.5' );
                     rect.setAttributeNS( null,'height','4' );
-                    rect.setAttributeNS( null, 'stroke','grey');
+                    rect.setAttributeNS( null, 'stroke','#212f3c');
                     // rect.setAttributeNS( null, 'stroke-width','1');
                     rect.setAttributeNS(null, 'stroke-linecap','round');
                     rect.setAttributeNS( null,'fill','#'+Math.round( 0xffffff * Math.random()).toString(16) );
