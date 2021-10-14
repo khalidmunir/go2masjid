@@ -293,21 +293,21 @@
 
                     </thead>
                     <tbody>
-                        <tr id='0'>
+                        <tr id='00'>
                             <th scope='row'>Fajr</th>
                             <td><span id="fajarStart1">farjStart</span></td>
                             <td><span id="fajarJamat1">fajarJamat</span></td>
                         </tr>
 
 
-                        <tr id='1'>
+                        <tr id='11'>
                             <th scope='row'>Sunrise</th>
                             <td><span id="sunrise1">sunrise</span></td>
                             <td></td>
                         </tr>
 
 
-                        <tr id='2'>
+                        <tr id='22'>
 
                             <th scope='row'><span id="dhuhr1">Dhuhr</span></th>
                             <td><span id="zuhrStart1">zuhrstart</span></td>
@@ -317,18 +317,18 @@
 
 
 
-                        <tr id='3'>
+                        <tr id='33'>
                             <th scope='row'>Asr</th>
                             <td><span id="asarStart1">asarStart</span></td>
                             <td><span id="asarJamat1">asarJamat</span></td>
                         </tr>
 
-                        <tr id='4'>
+                        <tr id='44'>
                             <th scope='row'>Magrib</th>
                             <td><span id="maghrib1">maghrib</span></td>
                             <td><span id="maghribJamat1">maghribJamat</span></td>
                         </tr>
-                        <tr id='5' style="border:5px solid transparent">
+                        <tr id='55' style="border:5px solid transparent">
                             <th scope='row'>Esha</th>
                             <td><span id="eshaStart1">eshaStart</span></td>
                             <td><span id="eshaJamat1">eshaJamat</span></td>
@@ -524,11 +524,16 @@
                 prayer[2]="Jummah";
                 document.getElementById("dhuhr").innerHTML = "Jummah";
                 document.getElementById("zuhrJamat").innerHTML = am_pm_hr(todaySalat.jumma);
+                document.getElementById("2").classList.add("table");
+                document.getElementById("2").classList.add("table-success");
             }
             else{
                 prayer[2]="Dhuhr";
                 document.getElementById("dhuhr").innerHTML = "Dhuhr";
                 document.getElementById("zuhrJamat").innerHTML = am_pm_hr(todaySalat.zuhrjamat);
+                document.getElementById("2").classList.remove("table");
+                document.getElementById("2").classList.remove("table-success");
+                
             }
             
             document.getElementById("asarStart").innerHTML = am_pm_hr(todaySalat.asarstart);
@@ -551,10 +556,14 @@
             if(tomorrowSalat.day=="Friday"){
                 document.getElementById("dhuhr1").innerHTML = "Jummah";
                 document.getElementById("zuhrJamat1").innerHTML = am_pm_hr(tomorrowSalat.jumma);
+                document.getElementById("22").classList.add("table");
+                document.getElementById("22").classList.add("table-success");
             }
             else{
                 document.getElementById("dhuhr1").innerHTML = "Dhuhr";
                 document.getElementById("zuhrJamat1").innerHTML = am_pm_hr(tomorrowSalat.zuhrjamat);
+                document.getElementById("22").classList.remove("table");
+                document.getElementById("22").classList.remove("table-success");
             }
 
             document.getElementById("asarStart1").innerHTML = am_pm_hr(tomorrowSalat.asarstart);
@@ -596,7 +605,7 @@
                 override= urlSrc;
             }
 
-            const response = await fetch(`https://go2masjid.com/api/papi/loc_getfavmasjid.php?lat=0&lon=0&dist=1&mlim=1&slim=3&mid=${override}`);
+            const response = await fetch(`https://go2masjid.com/api/papi/loc_getfavmasjid.php?lat=0&lon=0&dist=1&mlim=1&slim=10&mid=${override}`);
             const json = await response.json();
             // console.log(json[0]);
             masjidObj = json[0];
