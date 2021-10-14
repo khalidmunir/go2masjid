@@ -104,14 +104,14 @@
         .arc1 {
 
             stroke-width: 0.5;
-            stroke: green;
-            fill: #0e625199;
+            stroke: #0e625175;
+            fill: #0e625152;
 
         }
 
 
         .arc2 {
-            fill: #fe7a7a99;
+            fill: #fe7a7a52;
         }
     </style>
 
@@ -395,6 +395,7 @@
                     <tr>
                     <th scope="col">Name</th>
                     <th class="text-center" scope="col"> </th>
+                    <th class="text-center" scope="col"> </th>
                     <th class="text-center scope="col">Fajar</th>
                     <th class="text-center scope="col">Zuhr</th>
                     <th class="text-center scope="col">Asar</th>
@@ -416,6 +417,7 @@
                         
                         <tr>
                         <th class="align-middle" scope="row"><span class="text-left"  onclick="setMasjid('`+ masjid.masjidimage +`')">${masjid.masjidname}</span></th>
+                        <td class="text-center" ><button class="btn btn-primary" onclick="getMonthly('`+ masjid.masjidimage +`')" >${masjid.masjidname}</button></td>
                         <td class="text-center" >Start<br /><b>Jamat</b></td>
                         <td class="text-center" >${am_pm_hr(masjid.salats[0].fajarstart)}<br /><b>${am_pm_hr(masjid.salats[0].fajarjamat)}</b></td>
                         <td class="text-center" >${am_pm_hr(masjid.salats[0].zuhrstart)}<br /><b>${am_pm_hr(masjid.salats[0].zuhrjamat)}</b></td>
@@ -458,6 +460,12 @@
     function setMasjid(item) {
         urlSrc = item
         getSalah(true)
+    }
+    
+    function getMonthly(item) {
+        // urlSrc = item
+        console.log("item ",item);
+        // getSalah(true)
     }
     async function updateCitySources() {
     
@@ -1045,7 +1053,7 @@
                     document.getElementById("arc1").setAttribute("d", arc1);
                     
                     bord=i;
-                    document.getElementById(bord).style.border = "5px solid white";
+                    document.getElementById(bord).style.border = "5px solid #ccc";
 
                     // console.log("time fajr = ",time);
 
