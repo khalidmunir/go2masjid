@@ -177,6 +177,15 @@
             fill: #fe7a7a52;
         }
 
+        .option {
+            color:#2c2c2c;
+            background: #999999;
+        }
+
+        .dark-masjid .go2masjid-img  {
+            filter: invert(1);
+        }
+
        
     </style>
 
@@ -461,8 +470,8 @@
             console.log("event ",masjidlist);
 
                 const theader = `
-            <table class="container table table-striped pt-3">
-                <thead>
+            <table id="table4" class="container table table-striped pt-3">
+                <thead id="htable4">
                     <tr>
                     <th scope="col">Name</th>
                     <th class="text-center" scope="col"> </th>
@@ -540,9 +549,11 @@
         let table1 = document.getElementById("table1")
         let table2 = document.getElementById("table2")
         let table3 = document.getElementById("table3")
+        let table4 = document.getElementById("table4")
         let htable1 = document.getElementById("htable1")
         let htable2 = document.getElementById("htable2")
         let htable3 = document.getElementById("htable3")
+        let htable4 = document.getElementById("htable4")
 
         if (darkTheme) {
             bodyElement.classList.add('dark-masjid');
@@ -552,6 +563,8 @@
             table2.classList.add('table-dark');
             table3.classList.remove('table-light')
             table3.classList.add('table-dark');
+            table4.classList.remove('table-light')
+            table4.classList.add('table-dark');
 
             htable1.classList.remove('thead-light')
             htable1.classList.add('thead-dark');
@@ -559,6 +572,8 @@
             htable2.classList.add('thead-dark');
             htable3.classList.remove('thead-light')
             htable3.classList.add('thead-dark');
+            htable4.classList.remove('thead-light')
+            htable4.classList.add('thead-dark');
 
             // table1.classList.add('dark-masjid');
         } else {
@@ -569,6 +584,8 @@
             table2.classList.add('table-light');
             table3.classList.remove('table-dark')
             table3.classList.add('table-light');
+            table4.classList.remove('table-dark')
+            table4.classList.add('table-light');
 
             htable1.classList.remove('thead-dark')
             htable1.classList.add('thead-light');
@@ -576,6 +593,8 @@
             htable2.classList.add('thead-light');
             htable3.classList.remove('thead-dark')
             htable3.classList.add('thead-light');
+            htable4.classList.remove('thead-dark')
+            htable4.classList.add('thead-light');
         }
 
         console.log("toggle ", darkTheme);
@@ -598,7 +617,7 @@
 
 
     // console.log("In update sources", favLocalMasjid)
-    sourceCitySelector.innerHTML = `<option value=""> Select a City`;
+    sourceCitySelector.innerHTML = `<option value="" class="option"> Select a City`;
     
     sourceCitySelector.innerHTML += cityList.map((src, index) => `<option value=${src.cityname}>${src.cityname} - (${src.masjidid}) 
     `).join('\n');
@@ -614,7 +633,7 @@
         function init(){
             let override = urlMid === null ? urlSrc : urlMid;
             // document.getElementById("caption").innerHTML=`Times provided by <a href="https://go2masjid.com?mid=${urlSrc}" target="_blank">Go2masjid.com</a>`;
-            document.getElementById("caption").innerHTML=`Times provided by <a href="https://go2masjid.com?mid=${override}" target="_blank"><img style="height:25px; width:auto;" src="https://go2masjid.com/screens2/img/go2masjid01.jpg"/></a>`;
+            document.getElementById("caption").innerHTML=`Times provided by <a href="https://go2masjid.com?mid=${override}" target="_blank"><img class="go2masjid-img" style="height:25px; width:auto;" src="https://go2masjid.com/screens2/img/go2masjid01.jpg"/></a>`;
 
             updateCitySources();
             
@@ -760,7 +779,7 @@
             const tomorrowSalat= masjidObj.salats.filter(sal => sal.salatdate == tomorrowDate)[0]
             console.log("tom salat date: ", tomorrowSalat);
 
-            document.getElementById("caption").innerHTML=`Times provided by <a href="https://go2masjid.com?mid=${override}" target="_blank"><img style="height:25px; width:auto;" src="https://go2masjid.com/screens2/img/go2masjid01.jpg"/></a>`;
+            document.getElementById("caption").innerHTML=`Times provided by <a href="https://go2masjid.com?mid=${override}" target="_blank"><img class="go2masjid-img" style="height:25px; width:auto;" src="https://go2masjid.com/screens2/img/go2masjid01.jpg"/></a>`;
 
 
             // masjidObj= masjid;
